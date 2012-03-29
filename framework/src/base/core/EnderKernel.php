@@ -1,6 +1,6 @@
 <?php
-require __DIR__.'/core/Loader.php';
-use Ender\Core\Loader;
+require __DIR__.'/Loader/ClassLoader.php';
+use Ender\Loader\ClassLoader;
 
 class EnderKernel {
 
@@ -21,9 +21,13 @@ class EnderKernel {
 	
 	public function loader() {
 		if ($this->loader == null) {
-			$this->loader = new Loader();
+			$this->loader = new ClassLoader();
 		}
 		
 		return $this->loader;
+	}
+
+	public static function exec($func) {
+		return call_user_func($func, self::getInstance());
 	}
 }

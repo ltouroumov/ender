@@ -1,7 +1,7 @@
 <?php
 namespace Ender\Util;
 
-require_once 'util/ArrayIterator.php';
+require_once __DIR__.'/ArrayIterator.php';
 use Ender\Util\ArrayIterator;
 
 class ArrayCollection implements \ArrayAccess, \IteratorAggregate, \Countable {
@@ -11,7 +11,7 @@ class ArrayCollection implements \ArrayAccess, \IteratorAggregate, \Countable {
 	private $default;
 	
 	public function __construct($data = array()) {
-		$this->data = $data;
+		$this->data = $data instanceof ArrayCollection ? $data->toArray() : $data;
 		$this->updateCurrent();
 		$this->default = null;
 	}
@@ -51,6 +51,18 @@ class ArrayCollection implements \ArrayAccess, \IteratorAggregate, \Countable {
 
 		$this->data = array_merge($this->data, $data);
 	}
+	public function find($func) {
+		$new = new self();
+		foreach ($this->data as $key => $val) {
+			if (call_user_func($func, $val, $key))
+				$new->set($key, $val);
+		}
+		return $new;
+	}
+
+	public function keys() {
+		return array_keys($this->data);
+	}
 	public function toArray() {
 		return $this->data;
 	}
@@ -70,6 +82,13 @@ class ArrayCollection implements \ArrayAccess, \IteratorAggregate, \Countable {
 			$this->set($key, $val);
 			return $val;
 		}
+	}
+	public function getAll($keys) {
+		$new = new self();
+		foreach ($keys as $key) {
+			$new->set($key, $this->get($key));
+		}
+		return $new;
 	}
 	public function has($key) {
 		return isset($this->data[$key]);

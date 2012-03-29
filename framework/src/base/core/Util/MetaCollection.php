@@ -20,6 +20,11 @@ class MetaCollection extends ArrayCollection {
 		$this->meta->set($this->getKey(), $meta);
 	}
 
+	public function metaFind($func) {
+		$keys = $this->meta->find($func)->keys();
+		return new self($this->getAll($keys), $this->meta->getAll($keys));
+	}
+
 	public function metaGet($name) {
 		return $this->meta->get($name);
 	}

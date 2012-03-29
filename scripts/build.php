@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 $fw_base=realpath(__DIR__.'/../framework');

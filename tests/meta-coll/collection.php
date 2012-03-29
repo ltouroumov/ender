@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__.'/../lib/EnderCore.phar';
+require_once __DIR__.'/../lib/ender-core.phar';
 use Ender\Util;
 
 $coll = new Util\MetaCollection();

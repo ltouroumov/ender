@@ -1,11 +1,10 @@
 <?php
-namespace Ender\Core;
-
-require_once 'util/ArrayCollection.php';
+namespace Ender\Loader;
+require_once __DIR__.'/../Util/ArrayCollection.php';
 
 use Ender\Util\ArrayCollection;
 
-class Loader {
+class ClassLoader {
 	
 	private $loaders, $registered;
 

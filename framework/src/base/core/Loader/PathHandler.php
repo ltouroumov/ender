@@ -1,5 +1,5 @@
 <?php
-namespace Ender\Core\Loader;
+namespace Ender\Loader;
 
 //require_once 'Ender/Core/Loader/BaseHandler.php';
 class PathHandler extends BaseHandler {

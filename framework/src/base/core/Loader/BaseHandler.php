@@ -1,6 +1,6 @@
 <?php
 
-namespace Ender\Core\Loader;
+namespace Ender\Loader;
 abstract class BaseHandler {
 	
 	protected $baseNamespace;
