@@ -14,3 +14,9 @@ The framework is broken down into multiple parts:
  * **mvc/full** full fleged MVC framework in the lines of `Symfony` without the french accent.
  * **orm/tiny** micro orm that doesn't offer a lot of features but is great for small projects. Use it with `mvc/tiny` for quick small database aware applications.
  * **orm/full** full fledged ORM layer in the lines of `Doctrine`
+
+The install
+-----------
+To install the frameork you can either build it using the `scripts/build.php` to generate the phar archives. This method is useful if you only need one module.
+
+You can also copy the files into a directory named `Ender`. The classes should match the PSR-0 spec so any class loader can do the trick.
