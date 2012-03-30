@@ -19,7 +19,11 @@ class EventQueue {
 		});
 		
 		foreach ($handlers as $handler) {
-			$handler($args);
+			if ($handler instanceof IEventHandler) {
+				$handler->handle($args);
+			} else {
+				call_user_func($handler, $args);
+			}
 		}
 	}
 
