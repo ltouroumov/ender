@@ -14,3 +14,7 @@ The framework is broken down into multiple parts:
  * **mvc/full** full fleged MVC framework in the lines of `Symfony` without the french accent.
  * **orm/tiny** micro orm that doesn't offer a lot of features but is great for small projects. Use it with `mvc/tiny` for quick small database aware applications.
  * **orm/full** full fledged ORM layer in the lines of `Doctrine`
+
+The manual
+----------
+Each class should be documented using doxygen syntax. And a summary/usage manual in the `README.md` of each module.
