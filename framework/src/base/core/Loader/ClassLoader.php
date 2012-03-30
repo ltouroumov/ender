@@ -43,7 +43,7 @@ class ClassLoader {
 			}
 		}
 		
-		if (!(class_exists($class, false) or interface_exists($class, false))) {
+		if (!(class_exists($class, false) or interface_exists($class, false) or trait_exists($class, false))) {
 			throw new \Exception('Cannot load class ' . $class);
 		}
 	}
