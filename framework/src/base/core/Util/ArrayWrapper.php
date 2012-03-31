@@ -190,7 +190,7 @@ class ArrayWrapper implements \ArrayAccess, \IteratorAggregate, \Countable {
 
 	/* From IteratorAggregate */
 	public function getIterator() {
-		return new ArrayIterator($this->data);
+		return new \ArrayIterator($this->data);
 	}
 	
 	/* From ArrayAccess */
