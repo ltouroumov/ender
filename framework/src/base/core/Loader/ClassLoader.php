@@ -1,17 +1,17 @@
 <?php
 namespace Ender\Loader;
-require_once __DIR__.'/../Util/ArrayCollection.php';
+require_once __DIR__.'/../Util/ArrayWrapper.php';
 
-use Ender\Util\ArrayCollection;
+use Ender\Util\ArrayWrapper;
 
 class ClassLoader {
 	
 	private $loaders, $registered;
 
 	public function __construct() {
-		$this->loaders = new ArrayCollection();
+		$this->loaders = new ArrayWrapper();
 		$this->loaders->setDefault(function ($key) {
-			return new ArrayCollection();
+			return new ArrayWrapper();
 		});
 	}
 	

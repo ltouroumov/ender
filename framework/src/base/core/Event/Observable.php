@@ -1,13 +1,13 @@
 <?php
 namespace Ender\Event;
-use Ender\Util\ArrayCollection;
+use Ender\Util\ArrayWrapper;
 
 trait Observable {
 	
 	protected $_observers = [];
 	private function __initObservable() {
 		if (! $this->_observers) {
-			$this->_observers = new ArrayCollection();
+			$this->_observers = new ArrayWrapper();
 		}
 	}
 	public function addObserver(IObserver $observer) {

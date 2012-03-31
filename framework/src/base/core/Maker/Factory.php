@@ -1,6 +1,6 @@
 <?php
 namespace Ender\Core\Maker;
-use Ender\Util\ArrayCollection;
+use Ender\Util\ArrayWrapper;
 use Ender\Util\MetaCollection;
 
 class Factory {
@@ -11,8 +11,8 @@ class Factory {
 
 	function __construct() {
 		$this->factories = new MetaCollection();
-		$this->aliases = new ArrayCollection();
-		$this->instances = new ArrayCollection();
+		$this->aliases = new ArrayWrapper();
+		$this->instances = new ArrayWrapper();
 	}
 
 	function register($name, $impl, $args = [], $sets = [], $archetype = false) {
