@@ -1,5 +1,5 @@
 <?php
-namespace Ender\Core\Maker;
+namespace Ender\Maker;
 use Ender\Util\ArrayWrapper;
 use Ender\Util\MetaCollection;
 
