@@ -18,15 +18,6 @@ Phar::mapPhar($phar);
 		$loader->register();
 		$loader->addHandler('Ender.*', new PharHandler($phar, '/'));
 	});
-
-	# array_shift($argv);
-	# if (count($argv) > 0) {
-	# 	$bin_util = 'phar://'.$phar.'/bin/'.$argv[0].'.php';
-	# 	if (file_exists($bin_util)) {
-	# 		array_shift($argv);
-	# 		include $bin_util;
-	# 	}
-	# }
 #}
 
 __HALT_COMPILER();

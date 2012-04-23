@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__.'/../lib/ender-core.phar';
-use Ender\Core\Maker;
-use Ender\Core\Config;
+use Ender\Maker;
+// use Ender\Core\Config;
 
 class Logger {
 	public static $IC = 0;

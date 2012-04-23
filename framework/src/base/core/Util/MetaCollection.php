@@ -1,13 +1,13 @@
 <?php
 namespace Ender\Util;
 
-class MetaCollection extends ArrayCollection {
+class MetaCollection extends ArrayWrapper {
 	
 	private $meta;
 
 	public function __construct($data = [], $meta = []) {
 		parent::__construct($data);
-		$this->meta = $meta instanceof ArrayCollection ? $meta : new ArrayCollection($meta);
+		$this->meta = $meta instanceof ArrayWrapper ? $meta : new ArrayWrapper($meta);
 	}
 
 	public function set($name, $value, $meta = []) {

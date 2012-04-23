@@ -20,3 +20,7 @@ The install
 To install the frameork you can either build it using the `scripts/build.php` to generate the phar archives. This method is useful if you only need one module.
 
 You can also copy the files into a directory named `Ender`. The classes should match the PSR-0 spec so any class loader can do the trick.
+
+The manual
+----------
+Each class should be documented using doxygen syntax. And a summary/usage manual in the `README.md` of each module.

@@ -1,6 +1,6 @@
 <?php
-namespace Ender\Core\Maker;
-use Ender\Util\ArrayCollection;
+namespace Ender\Maker;
+use Ender\Util\ArrayWrapper;
 
 class Builder {
 	
