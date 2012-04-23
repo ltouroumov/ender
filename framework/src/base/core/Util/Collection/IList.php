@@ -8,6 +8,8 @@ interface IList extends ICollection {
 	public function unshift($obj);
 	public function shift();
 
+	public function get($idx);
+
 	public function count();
 
 	public function slice($offset, $length = null);

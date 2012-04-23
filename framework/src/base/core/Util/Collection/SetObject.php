@@ -1,13 +1,14 @@
 <?php
 namespace Ender\Util\Collection;
 
-class SetObject {
-	use Enumerable, Queryable;
+class SetObject implements ISet, IDataCollection {
+	use Enumerable;
 
 	private $data;
 
-	public function __construct($data = []) {
-		$this->data = $data instanceof static ? $data->getData() : $data;
+	public function __construct($data = [], $coll = false) {
+		$this->data = static::hashArray($data instanceof static ? $data->getData() : $data);
+		$this->_enum_collection_type = ($coll === false ? '\Ender\Util\Collection\ListObject' : $coll);
 	}
 
 	public function getEnumerator() {
@@ -25,13 +26,29 @@ class SetObject {
 		return array_key_exists($this->hash($obj), $this->data);
 	}
 
-	protected function hash($obj) {
+	public function size() {
+		return count($this->data);
+	}
+
+	protected static function hash($obj) {
 		if (is_object($obj)) {
 			return 'o'.spl_object_hash($obj);
 		} else {
 			//TODO: Find better way !
 			return 's'.md5(serialize($obj));
 		}
+	}
+
+	protected static function hashArray($ary) {
+		$data = [];
+		foreach ($ary as $val) {
+			$data[self::hash($val)] = $val;
+		}
+		return $data;
+	}
+
+	public function getData() {
+		return $this->data;
 	}
 
 }

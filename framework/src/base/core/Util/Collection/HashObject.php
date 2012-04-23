@@ -1,10 +1,10 @@
 <?php
 namespace Ender\Util\Collection;
 
-class HashObject implements IHash {
-	use Enumerable, Queryable;
+class HashObject implements IHash, IDataCollection {
+	use Enumerable;
 
-	private $this->data;
+	private $data;
 
 	public function __construct($data = []) {
 		$this->data = $data instanceof static ? $data->getData() : $data;

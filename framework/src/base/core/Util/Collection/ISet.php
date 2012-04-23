@@ -6,4 +6,5 @@ interface ISet extends ICollection {
 	public function del($obj);
 
 	public function contains($obj);
+	public function size();
 }

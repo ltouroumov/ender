@@ -1,8 +1,8 @@
 <?php
 namespace Ender\Util\Collection;
 
-class ListObject implements IList {
-	use Enumerable, Queryable;
+class ListObject implements IList, IDataCollection {
+	use Enumerable, Sortable;
 
 	private $data;
 	function __construct($data = []) {
@@ -24,7 +24,11 @@ class ListObject implements IList {
 		return array_shift($this->data);
 	}
 	public function unshift($val) {
-		array_unshift($this->data, $val)
+		array_unshift($this->data, $val);
+	}
+
+	public function get($idx) {
+		return $this->data[(int)$idx];
 	}
 
 	public function count() {
@@ -43,6 +47,10 @@ class ListObject implements IList {
 	}
 	public function prepend($data) {
 		return new static(array_merge(array_values($data instanceof static ? $data->getData() : $data), $this->data));
+	}
+
+	public function join($str) {
+		return implode($str, $this->data);
 	}
 
 	public function getData() {
